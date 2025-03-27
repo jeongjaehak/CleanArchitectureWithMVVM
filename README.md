@@ -5,7 +5,7 @@
 이 프로젝트는 https://jsonplaceholder.typicode.com/users API를 사용하여 받은 데이터를 UICollectionView로 처리하여 리스트 화면 구성하는 프로젝트 입니다.
 
 ### 1.1. 프로젝트 작성 규칙
-- Entities > Use Cases > Controllers > External Interfaces 종속성 흐름 제어
+- Entities - Use Cases - Controllers - External Interfaces 종속성 흐름 제어
 - Model - View - ViewModel 패턴 사용. 
 - UI는 SwiftUI만 사용한다.
 - 외부 라이브러리 사용금지.
