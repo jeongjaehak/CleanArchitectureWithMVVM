@@ -1,10 +1,10 @@
 import ProjectDescription
 
 let project = Project(
-    name: "CleanArchitectureWithMVVM",
+    name: "App",
     targets: [
         .target(
-            name: "CleanArchitectureWithMVVM",
+            name: "App",
             destinations: .iOS,
             product: .app,
             bundleId: "io.tuist.CleanArchitectureWithMVVM",
@@ -16,9 +16,9 @@ let project = Project(
                     ],
                 ]
             ),
-            sources: ["CleanArchitectureWithMVVM/Sources/**"],
-            resources: ["CleanArchitectureWithMVVM/Resources/**"],
-            dependencies: []
+            sources: ["Sources/**"],
+            resources: ["Resources/**"],
+            dependencies: [.project(target: "Views", path: "../Views")]
         ),
         .target(
             name: "CleanArchitectureWithMVVMTests",
@@ -26,9 +26,9 @@ let project = Project(
             product: .unitTests,
             bundleId: "io.tuist.CleanArchitectureWithMVVMTests",
             infoPlist: .default,
-            sources: ["CleanArchitectureWithMVVM/Tests/**"],
+            sources: ["Tests/**"],
             resources: [],
-            dependencies: [.target(name: "CleanArchitectureWithMVVM")]
+            dependencies: [.target(name: "App")]
         ),
     ]
 )
