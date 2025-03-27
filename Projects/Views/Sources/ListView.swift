@@ -1,6 +1,13 @@
+//
+//  ListView.swift
+//  Views
+//
+//  Created by 정재학 on 3/27/25.
+//
+
 import SwiftUI
 
-public struct ContentView: View {
+public struct ListView: View {
     public init() {}
 
     public var body: some View {
@@ -9,9 +16,8 @@ public struct ContentView: View {
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
+struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ListView()
     }
 }
