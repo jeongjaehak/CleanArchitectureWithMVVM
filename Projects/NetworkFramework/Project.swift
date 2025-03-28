@@ -1,17 +1,15 @@
 import ProjectDescription
 
 let project = Project(
-    name: "Entities",
+    name: "NetworkFramework",
     targets: [
         .target(
-            name: "Entities",
+            name: "NetworkFramework",
             destinations: .iOS,
             product: .staticFramework,
             bundleId: "io.tuist.CleanArchitectureWithMVVM",
             sources: ["Sources/**"],
-            dependencies: [
-                .project(target: "NetworkFramework", path: "../NetworkFramework")
-            ]
+            dependencies: []
         )
     ]
 )
