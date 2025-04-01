@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import NetworkFramework
+@_exported import NetworkFramework
 
 /// 유저 정보를 얻어오는 API
 public final class APIUsers: RequestItem {

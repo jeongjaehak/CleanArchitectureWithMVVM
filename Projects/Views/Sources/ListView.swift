@@ -6,26 +6,24 @@
 //
 
 import Combine
-import Entities
-import NetworkFramework
+import Controllers
 import SwiftUI
 
 public struct ListView: View {
-    var test = Set<AnyCancellable>()
-    
+    private var cancellables = Set<AnyCancellable>()
+    private let input = PassthroughSubject<ListViewModel.Input, Never>()
+    private let viewModel = ListViewModel()
     public init() {
-        
-        APIUsers().request().sink { completion in
-            switch completion {
-            case .finished:
-                print( "성공" )
-            case .failure( let error ):
-                print( "error: \(error.localizedDescription)" )
+        bind()
+    }
+    
+    public mutating func bind() {
+        viewModel.transform(input: input.eraseToAnyPublisher()).sink { event in
+            switch event {
+            case .updateList(users: let users):
+                
             }
-        } receiveValue: { userInfo in
-            print( "userInfo: \(userInfo)" )
-        }.store(in: &test)
-
+        }.store(in: &cancellables)
     }
 
     public var body: some View {
