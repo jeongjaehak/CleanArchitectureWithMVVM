@@ -9,9 +9,9 @@ import Foundation
 
 public struct Geo: Decodable {
     /// 위도
-    public let latitude: Double
+    public let latitude: String
     /// 경도
-    public let longitude: Double
+    public let longitude: String
     
     enum CodingKeys: String, CodingKey {
         case latitude = "lat"

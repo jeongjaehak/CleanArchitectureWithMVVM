@@ -84,15 +84,16 @@ extension RequestItem {
                     print( "--------------------------" )
                     // 데이터 통신
                     let (data, response) = try await urlSession.data(for: urlRequest)
-//                    let decoder = JSONDecoder()
-//                    let parsedResponse = try decoder.decode([[String: String?]].self, from: data)
-                    let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                    let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -1
+                    guard 200 <= statusCode && statusCode < 300 else { throw NetworkError.serverError(statusCode: statusCode) }
+                    let decoder = JSONDecoder()
+                    let parsedResponse = try decoder.decode(Response.self, from: data)
                     print( "RESPONSE DATA" )
                     print( "URL : \(urlString)" )
-                    print( "DATA : \(json)" )
+                    print( "DATA : \(parsedResponse)" )
                     print( "--------------------------" )
                     // 파싱 완료된 데이터 전달
-//                    promise(.success(parsedResponse))
+                    promise(.success(parsedResponse))
 
                 // MARK: - 통신 오류 처리
                     
@@ -100,6 +101,8 @@ extension RequestItem {
                     promise(.failure(.error(errorMessage: error.localizedDescription)))
                 } catch let error as DecodingError {
                     promise(.failure(.invalidJSON(errorMessage: error.localizedDescription)))
+                } catch let error as NetworkError {
+                    promise(.failure(error))
                 }
             }
         }

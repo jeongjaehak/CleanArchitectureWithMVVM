@@ -14,6 +14,8 @@ public enum NetworkError: Error {
     case dataNull
     /// JSON 에러
     case invalidJSON( errorMessage: String )
+    /// 서버 오류
+    case serverError( statusCode: Int )
     /// 네트워크 미연결
     case networkDisconnected
     /// 오류 + 내용
@@ -31,6 +33,8 @@ extension NetworkError: LocalizedError {
             "JSON 포맷이 유효하지 않습니다.\n" + message
         case .networkDisconnected:
             "네트워크 연결이 끊어졌습니다."
+        case .serverError(statusCode: let code):
+            "서버에서 오류가 발생했습니다.\nHTTP 상태 코드: \(code)"
         case .error(errorMessage: let message):
             message
         }

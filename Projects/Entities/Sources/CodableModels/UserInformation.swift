@@ -36,17 +36,19 @@ import Foundation
 /// 유저 정보를 담는 구조체
 public struct UserInformation: Decodable {
     /// 고유 아이디 값
-    public let id: Int?
+    public let id: Int
     /// 이름
-    public let name: String?
+    public let name: String
     /// 유저명
-    public let username: String?
+    public let username: String
+    /// 이메일
+    public let email: String
     /// 주소
-    public let address: Address?
+    public let address: Address
     /// 휴대폰 번호
-    public let phone: String?
+    public let phone: String
     /// 웹사이트
-    public let website: String?
+    public let website: String
     /// 회사 정보
-    public let company: Company?
+    public let company: Company
 }
