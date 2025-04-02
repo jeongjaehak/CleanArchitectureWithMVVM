@@ -44,6 +44,9 @@ public struct ListView: View {
                 }
             }
         }
+        .clipped() // clipToBounds
+        .scrollContentBackground(.hidden) // 스크롤 배경 숨김
+        .background(Color.white)    // 배경 흰색 처리
         .onAppear() {
             // 서버에서 데이터 로드
             input.send(.loadUsers)
