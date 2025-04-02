@@ -13,16 +13,12 @@ public struct DetailView: View {
     @State var userInformation: UserInformation
     
     public var body: some View {
-        VStack {
-            Group {
-                Text("Name: " + userInformation.name)
-                Text("UserName: " + userInformation.username)
-                Text("Email: " + userInformation.email)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 16)
+        ScrollView {
+            TextCell(title: "Name", value: userInformation.name)
+            TextCell(title: "UserName", value: userInformation.username)
+            TextCell(title: "Email", value: userInformation.email)
         }
-        .frame(maxHeight: .infinity, alignment: .top)
+        .toolbarBackground(Color.white, for: .navigationBar)
     }
 }
 

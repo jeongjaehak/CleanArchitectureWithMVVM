@@ -34,13 +34,14 @@ public struct ListView: View {
             }
             .listStyle(.grouped)
             .navigationTitle("정재학의 포트폴리오")
+            .toolbarBackground(Color.white, for: .navigationBar)
         }
         .clipped()
         .scrollContentBackground(.hidden)
         .background(Color.white)
         .onAppear(perform: loadUsers)
         .onReceive(viewModel.transform(input: input.eraseToAnyPublisher())) { event in
-            switch event {   
+            switch event {
             case .updateList(users: let users):
                 userInformations = users
             }
@@ -54,7 +55,6 @@ extension ListView {
     private func loadUsers() {
         input.send(.loadUsers)
     }
-
 }
 
 // MARK: - Preview
