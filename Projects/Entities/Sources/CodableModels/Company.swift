@@ -21,4 +21,18 @@ public struct Company: Decodable {
         case catchPhrase
         case businesStrategy = "bs"
     }
+    
+    // MARK: - Init
+    
+    public init(name: String, catchPhrase: String, businesStrategy: String) {
+        self.name = name
+        self.catchPhrase = catchPhrase
+        self.businesStrategy = businesStrategy
+    }
+}
+
+extension Company: Hashable, Equatable {
+    public static func == (lhs: Company, rhs: Company) -> Bool {
+        lhs.name == rhs.name
+    }
 }

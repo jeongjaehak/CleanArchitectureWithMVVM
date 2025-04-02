@@ -51,4 +51,23 @@ public struct UserInformation: Decodable {
     public let website: String
     /// 회사 정보
     public let company: Company
+    
+    // MARK: - Init
+    
+    public init(id: Int, name: String, username: String, email: String, address: Address, phone: String, website: String, company: Company) {
+        self.id = id
+        self.name = name
+        self.username = username
+        self.email = email
+        self.address = address
+        self.phone = phone
+        self.website = website
+        self.company = company
+    }
+}
+
+extension UserInformation: Hashable, Equatable {
+    public static func == (lhs: UserInformation, rhs: UserInformation) -> Bool {
+        lhs.id == rhs.id
+    }
 }

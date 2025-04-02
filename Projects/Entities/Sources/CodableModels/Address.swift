@@ -19,4 +19,20 @@ public struct Address: Decodable {
     public let zipcode: String
     /// GPS 좌표값
     public let geo: Geo
+    
+    // MARK: - Init
+    
+    public init(street: String, suite: String, city: String, zipcode: String, geo: Geo) {
+        self.street = street
+        self.suite = suite
+        self.city = city
+        self.zipcode = zipcode
+        self.geo = geo
+    }
+}
+
+extension Address: Hashable, Equatable {
+    public static func == (lhs: Address, rhs: Address) -> Bool {
+        lhs.zipcode == rhs.zipcode
+    }
 }

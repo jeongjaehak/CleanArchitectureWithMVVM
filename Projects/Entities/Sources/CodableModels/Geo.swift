@@ -17,4 +17,13 @@ public struct Geo: Decodable {
         case latitude = "lat"
         case longitude = "lng"
     }
+    
+    // MARK: - Init
+    
+    public init(latitude: String, longitude: String) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
 }
+
+extension Geo: Hashable, Equatable {}
