@@ -8,8 +8,15 @@
 import Entities
 import SwiftUI
 
+/// 메인 리스트에 보여줄 셀 화면
 struct ListViewCell: View {
+    
+    // MARK: - Properties
+    
+    /// 유저정보
     @State var userInformation: UserInformation
+    
+    // MARK: - Body
     
     var body: some View {
         VStack {
@@ -24,6 +31,8 @@ struct ListViewCell: View {
     }
 }
 
+// MARK: - Preview
+
 #Preview {
-    ListViewCell(userInformation: .init(id: 1, name: "Test", username: "TestNick", email: "email@test.com", address: .init(street: "street", suite: "suite", city: "seoul", zipcode: "12345", geo: .init(latitude: "38", longitude: "38")), phone: "010-1234-5678", website: "https://www.naver.com", company: .init(name: "ComponyName", catchPhrase: "CP", businesStrategy: "BS")))
+    ListViewCell(userInformation: TestData.userInformation)
 }

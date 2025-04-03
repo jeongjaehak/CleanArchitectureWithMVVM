@@ -7,21 +7,31 @@
 
 import SwiftUI
 
-struct TextCell: View {
+/// 제목과 컨텐츠 뷰가 한쌍으로 묶인 뷰
+struct TextCell<Content:View>: View {
+    
+    // MARK: - Properties
+    
+    /// 제목
     let title: String
-    let value: String
+    /// 보여줄 내용 뷰
+    let content: Content
+   
+    // MARK: - Body
     
     var body: some View {
         HStack {
             Text(title)
                 .frame(maxWidth: 100, alignment: .leading)
                 .padding(.leading, 16)
-            Text(value)
+            content
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }
 
+// MARK: - Preview
+
 #Preview {
-    TextCell(title: "title", value: "value")
+    TextCell(title: "title", content: Text("value"))
 }

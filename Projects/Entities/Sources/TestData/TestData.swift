@@ -34,7 +34,8 @@ public struct TestData {
     
     /// 테스트 유저 좌표
     public static var geo: Geo {
-        return Geo(latitude: "38", longitude: "38")
+        // 서울 좌표
+        return Geo(latitude: "37.5665", longitude: "126.9780")
     }
     
     /// 테스트 유저 회사

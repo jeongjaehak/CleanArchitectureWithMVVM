@@ -17,11 +17,13 @@ public final class ListViewModel {
     
     /// From View
     public enum Input {
-        case loadUsers
+        /// 유저정보 요청
+        case requestUsers
     }
     
     /// To View
     public enum Output {
+        /// 화면 목록 갱신
         case updateList( users: [UserInformation] )
     }
     
@@ -47,8 +49,8 @@ extension ListViewModel {
         input.sink { [weak self] event in
             guard let self else { return }
             switch event {
-            case .loadUsers:
-                loadUsers()
+            case .requestUsers:
+                requestUsers()
             }
         }.store(in: &cancellables)
         
@@ -61,7 +63,7 @@ extension ListViewModel {
 
 extension ListViewModel {
     /// 유저 정보를 가져온다.
-    private func loadUsers() {
+    private func requestUsers() {
         GetUserInformations().execute().sink { [weak self] completion in
             guard let self else { return }
             switch completion {

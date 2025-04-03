@@ -36,10 +36,10 @@ public struct ListView: View {
             .navigationTitle("정재학의 포트폴리오")
             .toolbarBackground(Color.white, for: .navigationBar)
         }
-        .clipped()
+        .clipped()  // 스크롤 시 SafeArea 영역에 컨텐츠가 보이지 않도록 하기 위함
         .scrollContentBackground(.hidden)
         .background(Color.white)
-        .onAppear(perform: loadUsers)
+        .onAppear(perform: requestUsers)
         .onReceive(viewModel.transform(input: input.eraseToAnyPublisher())) { event in
             switch event {
             case .updateList(users: let users):
@@ -52,8 +52,9 @@ public struct ListView: View {
 // MARK: - Private Functions
 
 extension ListView {
-    private func loadUsers() {
-        input.send(.loadUsers)
+    /// 서버로부터 유저정보 요청
+    private func requestUsers() {
+        input.send(.requestUsers)
     }
 }
 
