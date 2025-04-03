@@ -1,5 +1,15 @@
 import ProjectDescription
 
+let settings: Settings = .settings(
+    base: [
+        "PROJECT_BASE": "PROJECT_BASE",
+    ],
+    configurations: [
+        .debug(name: "Debug", xcconfig: "Support/Debug.xcconfig"),
+        .release(name: "Release", xcconfig: "Support/Release.xcconfig"),
+    ]
+)
+
 let project = Project(
     name: "App",
     targets: [
@@ -8,6 +18,7 @@ let project = Project(
             destinations: .iOS,
             product: .app,
             bundleId: "io.tuist.CleanArchitectureWithMVVM",
+            deploymentTargets: .iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchScreen": [
