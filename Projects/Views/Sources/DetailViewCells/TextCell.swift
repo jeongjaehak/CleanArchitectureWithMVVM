@@ -15,7 +15,7 @@ struct TextCell<Content:View>: View {
     /// 제목
     let title: String
     /// 보여줄 내용 뷰
-    let content: Content
+    @ViewBuilder let content: () -> Content
    
     // MARK: - Body
     
@@ -24,7 +24,7 @@ struct TextCell<Content:View>: View {
             Text(title)
                 .frame(maxWidth: 100, alignment: .leading)
                 .padding(.leading, 16)
-            content
+            content()
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
@@ -33,5 +33,7 @@ struct TextCell<Content:View>: View {
 // MARK: - Preview
 
 #Preview {
-    TextCell(title: "title", content: Text("value"))
+    TextCell(title: "title") {
+        Text("value")
+    }
 }

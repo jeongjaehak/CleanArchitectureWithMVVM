@@ -35,26 +35,59 @@ public struct DetailView: View {
                 TitleCell(text: "User Information")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
-                TextCell(title: "ID", content: Text("\(userInformation.id)"))
-                TextCell(title: "Name", content: Text(userInformation.name))
-                TextCell(title: "UserName", content: Text(userInformation.username))
-                TextCell(title: "Email", content: HyperLinkCell(title: userInformation.email,
-                                                                url: "mailto:"+userInformation.email))
-                TextCell(title: "Address", content: Text(addressText))
-                TextCell(title: "Map", content: MapView(location: userInformation.address.geo, pinName: userInformation.address.city))
-                TextCell(title: "Phone", content: HyperLinkCell(title: userInformation.phone,
-                                                                url: "tel:"+userInformation.phone))
-                TextCell(title: "Website", content: HyperLinkCell(title: userInformation.website,
-                                                                url: userInformation.website))
-                
+                TextCell(title: "ID") {
+                    Text("\(userInformation.id)")
+                }
+
+                TextCell(title: "Name") {
+                    Text(userInformation.name)
+                }
+
+                TextCell(title: "UserName") {
+                    Text(userInformation.username)
+                }
+
+                TextCell(title: "Email") {
+                    HyperLinkCell(title: userInformation.email,
+                                  url: "mailto:\(userInformation.email)")
+                }
+
+                TextCell(title: "Address") {
+                    Text(addressText)
+                }
+
+                TextCell(title: "Map") {
+                    MapView(location: userInformation.address.geo,
+                            pinName: userInformation.address.city)
+                }
+
+                TextCell(title: "Phone") {
+                    HyperLinkCell(title: userInformation.phone,
+                                  url: "tel:\(userInformation.phone)")
+                }
+
+                TextCell(title: "Website") {
+                    HyperLinkCell(title: userInformation.website,
+                                  url: userInformation.website)
+                }
+
                 Spacer()
-                
+
                 TitleCell(text: "Company Information")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading)
-                TextCell(title: "Name", content: Text(userInformation.company.name))
-                TextCell(title: "Catch Phrase", content: Text(userInformation.company.catchPhrase))
-                TextCell(title: "Busines Strategy", content: Text(userInformation.company.businesStrategy))
+
+                TextCell(title: "Name") {
+                    Text(userInformation.company.name)
+                }
+
+                TextCell(title: "Catch Phrase") {
+                    Text(userInformation.company.catchPhrase)
+                }
+
+                TextCell(title: "Business Strategy") {
+                    Text(userInformation.company.businesStrategy)
+                }
             }
         }
         .toolbarBackground(Color.white, for: .navigationBar)
