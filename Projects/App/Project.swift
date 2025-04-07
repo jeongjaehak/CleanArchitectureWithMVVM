@@ -1,17 +1,9 @@
 import ProjectDescription
-
-let settings: Settings = .settings(
-    base: [
-        "PROJECT_BASE": "PROJECT_BASE",
-    ],
-    configurations: [
-        .debug(name: "Debug", xcconfig: "Support/Debug.xcconfig"),
-        .release(name: "Release", xcconfig: "Support/Release.xcconfig"),
-    ]
-)
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "App",
+    settings: Settings.commonSettings(config: .debug),
     targets: [
         .target(
             name: "App",

@@ -9,5 +9,11 @@ import ProjectDescription
 
 let workspace = Workspace(
     name: "CleanArchitectureWithMVVM",
-    projects: ["Projects/**"]
+    projects: ["Projects/**"],
+    additionalFiles: [
+        .glob(pattern: ".gitignore"),
+        .glob(pattern: "mise.toml"),
+        .glob(pattern: "*.md"),
+        .glob(pattern: .relativeToRoot("Configurations/**/*.xcconfig")),
+    ]
 )

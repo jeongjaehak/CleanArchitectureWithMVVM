@@ -14,15 +14,18 @@ public enum Server {
     /// 개발 서버
     case develop
     /// 스테이징 서버
-    case staging
+//    case staging
     /// 운영 서버
     case production
     
     // MARK: - init
     
     public init() {
-        // 스킴으로 구분하여 개발/스테이징/운영 설정
+#if DEBUG
         self = .develop
+#else
+        self = .production
+#endif
     }
 }
 
@@ -31,8 +34,8 @@ extension Server {
         switch self {
         case .develop:
             "https://jsonplaceholder.typicode.com"
-        case .staging:
-            "https://jsonplaceholder.typicode.com"
+//        case .staging:
+//            "https://jsonplaceholder.typicode.com"
         case .production:
             "https://jsonplaceholder.typicode.com"
         }
