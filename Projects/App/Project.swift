@@ -3,7 +3,10 @@ import ProjectDescriptionHelpers
 
 let project = Project(
     name: "App",
-//    settings: Settings.commonSettings(config: .debug),
+    settings: .settings(base: SettingsDictionary()
+        .merging(Settings.commonSettings)
+        .otherLinkerFlags(["-weak_framework SwiftUI"])
+    ),
     targets: [
         .target(
             name: "App",
