@@ -1,5 +1,5 @@
 //
-//  RequestItem.swift
+//  Requestable.swift
 //  NetworkFramework
 //
 //  Created by 정재학 on 3/28/25.
@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 /// 네트워크 매니저에 넣을 입력 값
-public protocol RequestItem {
+public protocol Requestable {
     /// 결과 형태
     associatedtype Response: Decodable
     /// URL
@@ -26,7 +26,7 @@ public protocol RequestItem {
 
 // MARK: - 디폴트 타입 정의
 
-extension RequestItem {
+extension Requestable {
     public var contentType: ContentType { .json }
     public var method: HttpMethod { .get }
     public var headers: Headers {
@@ -36,7 +36,7 @@ extension RequestItem {
 
 // MARK: - 데이터 요청
 
-extension RequestItem {
+extension Requestable {
     /// 요청 데이터 기반으로 데이터 통신하는 함수
     /// - Returns: 응답 객체 또는 네트워크 오류 발생
     public func request() -> AnyPublisher<Response, NetworkError> {
