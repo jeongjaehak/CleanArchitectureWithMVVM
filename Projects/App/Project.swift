@@ -3,7 +3,7 @@ import ProjectDescriptionHelpers
 
 let project = Project(
     name: "App",
-    settings: Settings.commonSettings(config: .debug),
+//    settings: Settings.commonSettings(config: .debug),
     targets: [
         .target(
             name: "App",
