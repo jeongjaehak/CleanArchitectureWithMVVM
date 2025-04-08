@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:.gitignore">
+   </FileRef>
+   <Group
+      location = "group:Configurations"
+      name = "Configurations">
+      <FileRef
+         location = "group:CommonConfig.xcconfig">
+      </FileRef>
+      <FileRef
+         location = "group:DebugConfig.xcconfig">
+      </FileRef>
+      <FileRef
+         location = "group:ReleaseConfig.xcconfig">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Projects"
+      name = "Projects">
+      <FileRef
+         location = "group:App/App.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Controllers/Controllers.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Entities/Entities.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:NetworkFramework/NetworkFramework.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:UseCases/UseCases.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Views/Views.xcodeproj">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:mise.toml">
+   </FileRef>
+</Workspace>
