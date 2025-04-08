@@ -17,6 +17,14 @@ public struct DetailView: View {
     @State var userInformation: UserInformation
     /// 주소 표시용 텍스트
     private let addressText: String
+    /// 유저정보 셀의 타이틀 문자열
+    private let userInfoTitles = [
+        "ID", "Name", "UserName", "Email", "Address", "Map", "Phone", "Website"
+    ]
+    /// 회사정보 셀의 타이틀 문자열
+    private let companyInfoTitles = [
+        "Name", "Catch Phrase", "Business Strategy"
+    ]
     
     // MARK: - Init
     
@@ -31,65 +39,40 @@ public struct DetailView: View {
     public var body: some View {
         ScrollView {
             Spacer(minLength: 16)
-            VStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 8) {
                 TitleCell(text: "User Information")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                TextCell(title: "ID") {
-                    Text("\(userInformation.id)")
-                }
-
-                TextCell(title: "Name") {
-                    Text(userInformation.name)
-                }
-
-                TextCell(title: "UserName") {
-                    Text(userInformation.username)
-                }
-
-                TextCell(title: "Email") {
+                Text("ID: \(userInformation.id)")
+                Text("Name: " + userInformation.name)
+                Text("UserName: " + userInformation.username)
+                HStack {
+                    Text("Email: ")
                     HyperLinkCell(title: userInformation.email,
                                   url: "mailto:\(userInformation.email)")
                 }
-
-                TextCell(title: "Address") {
-                    Text(addressText)
-                }
-
-                TextCell(title: "Map") {
-                    MapView(location: userInformation.address.geo,
-                            pinName: userInformation.address.city)
-                }
-
-                TextCell(title: "Phone") {
+                Text("Address: " + addressText)
+                MapView(location: userInformation.address.geo,
+                        pinName: userInformation.address.city)
+                HStack {
+                    Text("Phone: ")
                     HyperLinkCell(title: userInformation.phone,
                                   url: "tel:\(userInformation.phone)")
                 }
-
-                TextCell(title: "Website") {
+                HStack {
+                    Text("Website: ")
                     HyperLinkCell(title: userInformation.website,
                                   url: userInformation.website)
                 }
 
                 Spacer()
-
+                Divider()
+                
                 TitleCell(text: "Company Information")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-
-                TextCell(title: "Name") {
-                    Text(userInformation.company.name)
-                }
-
-                TextCell(title: "Catch Phrase") {
-                    Text(userInformation.company.catchPhrase)
-                }
-
-                TextCell(title: "Business Strategy") {
-                    Text(userInformation.company.businesStrategy)
-                }
-            }
+                Text("Name: " + userInformation.company.name)
+                Text("Catch Phrase: " + userInformation.company.catchPhrase)
+                Text("Business Strategy: " + userInformation.company.businesStrategy)
+            }.padding()
         }
+        .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color.white, for: .navigationBar)
     }
 }
