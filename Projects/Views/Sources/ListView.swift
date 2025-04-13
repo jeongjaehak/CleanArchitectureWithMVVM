@@ -35,6 +35,9 @@ public struct ListView: View {
             .listStyle(.grouped)
             .navigationTitle("정재학의 포트폴리오")
             .toolbarBackground(Color.white, for: .navigationBar)
+            .refreshable {  // Pull To Refresh
+                requestUsers()
+            }
         }
         .clipped()  // 스크롤 시 SafeArea 영역에 컨텐츠가 보이지 않도록 하기 위함
         .scrollContentBackground(.hidden)

@@ -13,18 +13,18 @@
 - 데이터 파싱은 Codable을 채택하여 구조체로 관리 및 사용.
 
 ### 1.2. 구현
-- List - Detail - WebView 구조
+- List - Detail 구조
 - name, username, email 리스트에 사용
 - 나머지 데이터 상세화면에 사용
-- URL 데이터로 WebView에 사용
-- 전화번호>전화연결, 이메일>이메일연결
+- 전화번호>전화연결, 이메일>이메일연결, 웹사이트>사파리연결
 - 상세화면 MapView에 Geo 정보로 pin 표시
 - Pull To Refresh 구현
 - 통신 실패 시 에러 팝업
 
 ## 2. 프로젝트 설정
 ### 2.1. [Tuist](https://docs.tuist.dev/ko/#installation) 기반으로 작성
-Mise를 이용하여 설치하였으며 Tuist 버전은 4.45.0 기준으로 작성되었습니다. ([mise.toml](./mise.toml) 참고)
+Mise를 이용하여 설치하였으며 Tuist 버전은 4.45.0 기준으로 작성되었습니다. ([mise.toml](./mise.toml) 참고)   
+깃 브랜치에선 프로젝트 파일이 없으며 Tuist가 없는 경우 [FullSourceFiles](https://github.com/jeongjaehak/CleanArchitectureWithMVVM/tree/FullSourceFiles) 브랜치를 받으시면 워크스페이스 및 프로젝트 파일이 포함되어 실행 가능합니다.
 
 ## 3. 프로젝트 의존성
 <img src="graph.png" width="40%" height="40%" title="tuist graph" alt="graph.png"></img>
